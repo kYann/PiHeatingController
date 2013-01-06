@@ -5,12 +5,15 @@
        <fieldset>
            <legend>Heater</legend>
            <p>
-               <label id="status-label" for="status">Power switch</label>
-               <input type="checkbox" id="status" />
+               <label for="status">Power Switch</label>
+                <select name="status" id="status" data-role="slider">
+	                <option value="off">Off</option>
+	                <option value="on">On</option>
+                </select> 
            </p>
            <p>
                <label id="level-label" for="status">Level</label>
-               <input type="text" id="level" />
+               <input type="range" name="level" min="0" max="5" data-highlight="true" step="0.20" />
            </p>
            <p>
                <input type="submit" value="Validate" />

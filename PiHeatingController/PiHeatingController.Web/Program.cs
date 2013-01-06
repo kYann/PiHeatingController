@@ -33,7 +33,7 @@ namespace PiHeatingController.Web
 
         public static string GetHostUrl()
         {
-            return "http://localhost:1234";
+            return "http://localhost:8080";
         }
 
         public static void StartServer(string path)
@@ -51,11 +51,11 @@ namespace PiHeatingController.Web
 
         static void Main(string[] args)
         {
-            StartServer(
-                Path.GetDirectoryName(
-                    Path.GetDirectoryName(
-                        AppDomain.CurrentDomain.BaseDirectory.Trim(Path.DirectorySeparatorChar)))
-                );
+            var path = AppDomain.CurrentDomain.BaseDirectory.TrimEnd(Path.DirectorySeparatorChar);
+#if DEBUG
+            path = Path.GetDirectoryName(Path.GetDirectoryName(path));
+#endif
+            StartServer(path);
             Console.ReadLine();
             StopServer();
         }

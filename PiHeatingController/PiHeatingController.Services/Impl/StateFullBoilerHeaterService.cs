@@ -10,7 +10,7 @@ namespace PiHeatingController.Services.Impl
     {
         IBoilerHeaterService service;
         static StartSwitchPosition currentPosition;
-        static int currentLevel;
+        static double currentLevel;
 
         public StateFullBoilerHeaterService(IBoilerHeaterService service)
         {
@@ -29,13 +29,13 @@ namespace PiHeatingController.Services.Impl
             currentPosition = StartSwitchPosition.WaterOn;
         }
 
-        public void SetHeatLevel(int level)
+        public void SetHeatLevel(double level)
         {
             this.service.SetHeatLevel(level);
             currentLevel = level;
         }
 
-        public int GetLevel()
+        public double GetLevel()
         {
             return currentLevel;
         }

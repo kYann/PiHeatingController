@@ -8,9 +8,9 @@ namespace PiHeatingController.Services
 {
     public enum StartSwitchPosition
     {
-        AllOff = 0,
-        WaterOn = 30,
-        HeaterOn = 60
+        AllOff = 90,
+        WaterOn = 120,
+        HeaterOn = 150
     }
 
     public interface IBoilerHeaterService
@@ -19,6 +19,6 @@ namespace PiHeatingController.Services
 
         void TurnOff();
 
-        void SetHeatLevel(int level);
+        void SetHeatLevel(double level);
     }
 }

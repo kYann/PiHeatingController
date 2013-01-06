@@ -8,8 +8,8 @@ namespace PiHeatingController.Services
 {
     public interface IStateFullBoilerHeaterService : IBoilerHeaterService
     {
-        public int GetLevel();
+        double GetLevel();
 
-        public bool IsOn();
+        bool IsOn();
     }
 }

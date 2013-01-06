@@ -23,14 +23,14 @@ namespace PiHeatingController.Web
                     level = heaterService.GetLevel()
                 };
 
-                return View[model];
+                return View["heater/index.html", model];
             };
 
             Post["heater"] = parameters =>
             {
                 var model = new
                 {
-                    status = (string)this.Request.Form.status,
+                    status = ((string)this.Request.Form.status ?? "off"),
                     level = (int)this.Request.Form.level
                 };
 
@@ -45,7 +45,7 @@ namespace PiHeatingController.Web
                         break;
                 }
 
-                return View[model];
+                return View["heater/index.html", model];
             };
         }
     }
